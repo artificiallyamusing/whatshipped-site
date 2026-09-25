@@ -27,10 +27,10 @@ footer{border-top:1px solid var(--line);padding:18px 20px;color:var(--muted);fon
 <p>Change the target later in <strong>Project settings &gt; WhatShipped &gt; Change target</strong>.</p>
 <p>A tidy setup is a "Release notes" parent page, with each release or digest as a child page.</p>
 <h2>The changelog index page</h2>
-<p>After each publish, WhatShipped also keeps an index page under the same parent, called "<KEY> changelog" (for example "ACME changelog"). It lists every published note, newest first, with a link.</p>
+<p>After each publish, WhatShipped also keeps an index page under the same parent, called "<code>KEY</code> changelog" (for example "ACME changelog"). It lists every published note, newest first, with a link.</p>
 <ul>
 <li>It only grows. Republishing refreshes a line; deleting a note in WhatShipped leaves its line.</li>
-<li>If a page with that title already exists and WhatShipped did not make it, WhatShipped leaves it alone and uses "<KEY> changelog (WhatShipped)" instead.</li>
+<li>If a page with that title already exists and WhatShipped did not make it, WhatShipped leaves it alone and uses "<code>KEY</code> changelog (WhatShipped)" instead.</li>
 <li>If the index page is deleted, it is created again at the next publish.</li>
 <li>It stays under the parent where it was first created, even if you change the target later.</li>
 <li>If the index cannot be updated, the note is still published, with a warning.</li>
@@ -43,7 +43,7 @@ footer{border-top:1px solid var(--line);padding:18px 20px;color:var(--muted);fon
 <p>A page with the same title under the parent is updated as a new page version, not copied.</p>
 <h2>What changes in Jira</h2>
 <p>When you publish release notes for one or more <strong>versions</strong>, WhatShipped stores a link to the page as a project property for each version. You do not see this in Jira.</p>
-<p>It can also add "Release notes: <link>" to each version's description. This is <strong>off by default</strong>. Turn it on in <strong>Project settings &gt; WhatShipped</strong>. Even then, WhatShipped only fills a description that is empty. It never replaces text you wrote.</p>
+<p>It can also add "Release notes: <code>link</code>" to each version's description. This is <strong>off by default</strong>. Turn it on in <strong>Project settings &gt; WhatShipped</strong>. Even then, WhatShipped only fills a description that is empty. It never replaces text you wrote.</p>
 <p>Both are best effort. If Jira refuses, the Confluence page is still published.</p>
 <h2>The pre-flight check</h2>
 <p>Before publishing, WhatShipped checks the parent page. You may see:</p>
