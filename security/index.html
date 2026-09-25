@@ -1,0 +1,124 @@
+<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Security and data handling</title><meta name="description" content="WhatShipped turns closed Jira work into cited release notes and scheduled digests, published to Confluence.">
+<style>
+:root{--bg:#fff;--fg:#1d2330;--muted:#5b6475;--line:#e3e6ec;--accent:#1f5eff;--code:#f4f6f9}
+@media (prefers-color-scheme:dark){:root{--bg:#12151b;--fg:#e6e8ec;--muted:#9aa3b2;--line:#2a2f39;--accent:#7fa6ff;--code:#1b1f27}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+a{color:var(--accent)}header{border-bottom:1px solid var(--line);padding:14px 20px;display:flex;justify-content:space-between;align-items:center}
+header .brand{font-weight:700;font-size:18px;color:var(--fg);text-decoration:none}header .brand span{color:var(--accent)}
+.wrap{display:grid;grid-template-columns:240px 1fr;max-width:1100px;margin:0 auto}
+nav{border-right:1px solid var(--line);padding:20px 16px;position:sticky;top:0;align-self:start;max-height:100vh;overflow:auto}
+nav a{display:block;padding:6px 8px;border-radius:6px;color:var(--fg);text-decoration:none;font-size:15px}nav a.on{background:var(--code);font-weight:600}
+main{padding:28px 36px;min-width:0}main h1{font-size:30px;line-height:1.25;margin-top:0}main h2{margin-top:32px}
+main img{max-width:100%;border:1px solid var(--line);border-radius:8px}code,pre{background:var(--code);border-radius:4px}code{padding:1px 5px}pre{padding:12px;overflow:auto}
+table{border-collapse:collapse;width:100%}td,th{border:1px solid var(--line);padding:6px 10px;text-align:left}
+footer{border-top:1px solid var(--line);padding:18px 20px;color:var(--muted);font-size:14px;text-align:center}
+@media (max-width:760px){.wrap{grid-template-columns:1fr}nav{position:static;border-right:0;border-bottom:1px solid var(--line);max-height:none;display:flex;flex-wrap:wrap;gap:4px}main{padding:20px 16px}}
+</style></head><body>
+<header><a class="brand" href="../">What<span>Shipped</span></a><a href="../support/">Support</a></header>
+<div class="wrap"><nav><a href="../">WhatShipped</a><a href="../install/">Getting started</a><a href="../generating/">Release notes and sprint digests</a><a href="../reviewing/">Review and edit</a><a href="../publishing/">Publishing to Confluence</a><a href="../digests/">Scheduled digests</a><a href="../voices/">Voices</a><a href="../budgets/">Budgets and pricing</a><a href="../security/" class=on>Security and data handling</a><a href="../vs-rovo/">WhatShipped and Rovo</a><a href="../troubleshooting/">Troubleshooting</a><a href="../support/">Support</a><a href="../privacy/">Privacy policy</a><a href="../eula/">Licence agreement</a></nav><main><h1>Security and data handling</h1>
+<h2>Runs on Atlassian</h2>
+<p>WhatShipped is built on Atlassian Forge. It has no servers of its own and no external network access. It reads and writes only Jira, Confluence and Forge storage on your site, and is built to meet Runs on Atlassian.</p>
+<h2>The model</h2>
+<p>Drafts are written by Atlassian's Forge LLMs service, using Claude models (Haiku to read issues, Sonnet or Haiku to write the draft). Prompts and issue text are processed inside Atlassian's platform and are not sent outside Atlassian. We make no claim about model-side retention beyond what Atlassian publishes for Forge LLMs. We do not train models on your content.</p>
+<h2>What reaches the model</h2>
+<p>Sent: issue summaries, descriptions, comments, labels, resolution, fix version, sprint and parent summary, plus linked item titles if you turn that on.</p>
+<p>Removed or replaced first:</p>
+<ul>
+<li>Assignee and reporter fields are never sent.</li>
+<li>@-mentions become "[person]".</li>
+<li>Email addresses, phone numbers, <code>key=value</code> credentials and known API token prefixes become placeholders.</li>
+<li>Known display names are scrubbed from the text.</li>
+</ul>
+<p>After drafting, a checker rejects any bullet containing a name from the input set.</p>
+<h2>Permissions (scopes)</h2>
+<table>
+<thead>
+<tr>
+<th>Scope</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>read:jira-work</code></td>
+<td>Read issues and versions to draft notes</td>
+</tr>
+<tr>
+<td><code>read:sprint:jira-software</code>, <code>read:board-scope:jira-software</code></td>
+<td>List boards and sprints for sprint digests</td>
+</tr>
+<tr>
+<td><code>write:jira-work</code></td>
+<td>On publish, store a page link as a project property, and add a link to empty version descriptions if you turn that on</td>
+</tr>
+<tr>
+<td><code>read:jira-user</code></td>
+<td>Count user accounts to size the paid budget. Only the number is kept. No user record is stored or sent to the model</td>
+</tr>
+<tr>
+<td><code>read:space:confluence</code>, <code>read:page:confluence</code></td>
+<td>Find the space and parent page</td>
+</tr>
+<tr>
+<td><code>write:page:confluence</code></td>
+<td>Create or update the note page, as the person publishing</td>
+</tr>
+<tr>
+<td><code>storage:app</code></td>
+<td>Store notes, settings and the cost ledger</td>
+</tr>
+</tbody>
+</table>
+<h2>Who acts</h2>
+<ul>
+<li>Publishing and anything you start from the screen runs as you, with your permissions.</li>
+<li>Scheduled digests and auto-drafts on release read Jira as the app. They only ever produce drafts.</li>
+<li>Each request is checked against the project you are in. Admin settings need a Jira admin.</li>
+</ul>
+<h2>What is stored, and for how long</h2>
+<p>Everything is in Forge storage for your site.</p>
+<table>
+<thead>
+<tr>
+<th>Data</th>
+<th>Kept</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Note drafts and your edits, with the issue quotes behind each bullet</td>
+<td>13 months by default, then: unpublished drafts deleted; published notes keep only the published text</td>
+</tr>
+<tr>
+<td>Names used for the leak check</td>
+<td>Only while a draft is being made. Deleted on completion or failure. Leftovers swept after 7 days</td>
+</tr>
+<tr>
+<td>Edit memory pairs</td>
+<td>Newest 50 per project and voice</td>
+</tr>
+<tr>
+<td>Cost ledger</td>
+<td>13 months</td>
+</tr>
+<tr>
+<td>Error log (type, stage, note id, short technical message)</td>
+<td>90 days</td>
+</tr>
+</tbody>
+</table>
+<p>Admins can set the note retention from 1 to 60 months on the admin page.</p>
+<p>We do not store Atlassian account IDs, user names, email addresses, passwords or API tokens.</p>
+<h2>Logs</h2>
+<p>App logs record error types, ids, status codes and sizes, never response bodies or issue text.</p>
+<h2>Deletion</h2>
+<ul>
+<li><strong>Delete note</strong> on the review screen removes the note, draft, job, publish record and temporary data at once. Published Confluence pages stay; they are your content.</li>
+<li><strong>Uninstall</strong>: Atlassian deletes the app's Forge storage for your site.</li>
+</ul>
+<h2>Security reviews</h2>
+<p>We keep a self-assessment against Atlassian's security requirements for cloud apps. For questionnaires, a data processing addendum or to report a vulnerability, email hello@whatshipped.co.uk. A person answers these.</p>
+<p>See also the <a href="../privacy/">Privacy policy</a>.</p></main></div>
+<footer>WhatShipped · <a href="mailto:hello@whatshipped.co.uk">hello@whatshipped.co.uk</a> · <a href="../privacy/">Privacy</a> · <a href="../eula/">Licence</a></footer>
+</body></html>

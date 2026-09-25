@@ -1,0 +1,121 @@
+<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WhatShipped and Rovo</title><meta name="description" content="WhatShipped turns closed Jira work into cited release notes and scheduled digests, published to Confluence.">
+<style>
+:root{--bg:#fff;--fg:#1d2330;--muted:#5b6475;--line:#e3e6ec;--accent:#1f5eff;--code:#f4f6f9}
+@media (prefers-color-scheme:dark){:root{--bg:#12151b;--fg:#e6e8ec;--muted:#9aa3b2;--line:#2a2f39;--accent:#7fa6ff;--code:#1b1f27}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+a{color:var(--accent)}header{border-bottom:1px solid var(--line);padding:14px 20px;display:flex;justify-content:space-between;align-items:center}
+header .brand{font-weight:700;font-size:18px;color:var(--fg);text-decoration:none}header .brand span{color:var(--accent)}
+.wrap{display:grid;grid-template-columns:240px 1fr;max-width:1100px;margin:0 auto}
+nav{border-right:1px solid var(--line);padding:20px 16px;position:sticky;top:0;align-self:start;max-height:100vh;overflow:auto}
+nav a{display:block;padding:6px 8px;border-radius:6px;color:var(--fg);text-decoration:none;font-size:15px}nav a.on{background:var(--code);font-weight:600}
+main{padding:28px 36px;min-width:0}main h1{font-size:30px;line-height:1.25;margin-top:0}main h2{margin-top:32px}
+main img{max-width:100%;border:1px solid var(--line);border-radius:8px}code,pre{background:var(--code);border-radius:4px}code{padding:1px 5px}pre{padding:12px;overflow:auto}
+table{border-collapse:collapse;width:100%}td,th{border:1px solid var(--line);padding:6px 10px;text-align:left}
+footer{border-top:1px solid var(--line);padding:18px 20px;color:var(--muted);font-size:14px;text-align:center}
+@media (max-width:760px){.wrap{grid-template-columns:1fr}nav{position:static;border-right:0;border-bottom:1px solid var(--line);max-height:none;display:flex;flex-wrap:wrap;gap:4px}main{padding:20px 16px}}
+</style></head><body>
+<header><a class="brand" href="../">What<span>Shipped</span></a><a href="../support/">Support</a></header>
+<div class="wrap"><nav><a href="../">WhatShipped</a><a href="../install/">Getting started</a><a href="../generating/">Release notes and sprint digests</a><a href="../reviewing/">Review and edit</a><a href="../publishing/">Publishing to Confluence</a><a href="../digests/">Scheduled digests</a><a href="../voices/">Voices</a><a href="../budgets/">Budgets and pricing</a><a href="../security/">Security and data handling</a><a href="../vs-rovo/" class=on>WhatShipped and Rovo</a><a href="../troubleshooting/">Troubleshooting</a><a href="../support/">Support</a><a href="../privacy/">Privacy policy</a><a href="../eula/">Licence agreement</a></nav><main><h1>WhatShipped and Rovo Release Notes Drafter</h1>
+<p>Both draft release notes from Jira, and both stay inside Atlassian. They suit different jobs.</p>
+<h2>Rovo Release Notes Drafter</h2>
+<p>Rovo's Release Notes Drafter is a ready-made Rovo agent from Atlassian. At the time of writing (September 2026) it is included with paid Jira and Confluence Cloud plans. You prompt it and it reads up to 20 work items at a time. Atlassian Community posts say the limit can be changed by copying the agent. It groups the work by theme and drafts a Confluence page.</p>
+<p>It works on demand, and it does that well. If you release a small number of issues a month and someone is happy to prompt it, Rovo may be all you need. It costs nothing extra on a paid plan.</p>
+<p>Please check Atlassian's current documentation, as Rovo changes often.</p>
+<h2>WhatShipped</h2>
+<p>WhatShipped is the workflow around the draft.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>WhatShipped</th>
+<th>Rovo Release Notes Drafter (Sept 2026)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Starts from</td>
+<td>One or more versions, a sprint, any JQL, or a schedule</td>
+<td>A prompt</td>
+</tr>
+<tr>
+<td>Issues per draft</td>
+<td>Up to 300</td>
+<td>Up to 20 by default</td>
+</tr>
+<tr>
+<td>Scheduled digests</td>
+<td>Weekly or fortnightly, held for review</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Saved audience voices</td>
+<td>Customer, internal, exec, plus your own, with banned words</td>
+<td>No saved voices</td>
+</tr>
+<tr>
+<td>Citations</td>
+<td>Every bullet shows its issue keys; uncited or mis-cited bullets are removed</td>
+<td>No citation check</td>
+</tr>
+<tr>
+<td>Excluded-issue report</td>
+<td>Yes</td>
+<td>Not documented</td>
+</tr>
+<tr>
+<td>Learns from your edits</td>
+<td>Yes, per voice</td>
+<td>Not documented</td>
+</tr>
+<tr>
+<td>Changelog record</td>
+<td>One Confluence page per note, an index page listing them all, and a History tab</td>
+<td>One page per request</td>
+</tr>
+<tr>
+<td>Visible cost</td>
+<td>Monthly budget in dollars, estimate before each draft</td>
+<td>Not applicable</td>
+</tr>
+<tr>
+<td>Chat and questions about your project</td>
+<td>No</td>
+<td>Yes, as part of Rovo</td>
+</tr>
+<tr>
+<td>Price</td>
+<td>Free up to 10 users, then $1.00 per user per month</td>
+<td>Included in paid plans</td>
+</tr>
+</tbody>
+</table>
+<h2>What WhatShipped does not do</h2>
+<ul>
+<li>Chat, or answer questions about your project.</li>
+<li>Draft anything other than release notes and digests.</li>
+<li>Send to Slack, Teams or email. It gives you copy-ready text instead.</li>
+<li>Publish without a person clicking Publish.</li>
+</ul>
+<h2>Using both</h2>
+<p>Many teams can draft ad hoc with Rovo and keep the regular record with WhatShipped. They do not conflict.</p>
+<h2>Other release-notes apps</h2>
+<p>The Marketplace has other good release-notes apps, some well established. Depending on the app, you may find:</p>
+<ul>
+<li>ready-made templates for many formats;</li>
+<li>direct delivery to email or Slack;</li>
+<li>public, customer-facing release pages hosted outside Confluence;</li>
+<li>support for older Atlassian platforms.</li>
+</ul>
+<p>WhatShipped does not host public pages or send messages. It keeps all data inside Atlassian, with no external network access, so it can carry the Runs on Atlassian badge. Apps that deliver to outside services usually cannot.</p>
+<p>Choose WhatShipped if you want:</p>
+<ul>
+<li>drafts where every bullet cites its issue and the excluded issues are listed;</li>
+<li>saved voices per audience;</li>
+<li>scheduled digests held for review;</li>
+<li>your changelog as a Confluence page tree;</li>
+<li>no data leaving Atlassian.</li>
+</ul>
+<p>If you need public release pages or direct email delivery today, another app may suit you better. Most offer free trials, so try more than one.</p></main></div>
+<footer>WhatShipped · <a href="mailto:hello@whatshipped.co.uk">hello@whatshipped.co.uk</a> · <a href="../privacy/">Privacy</a> · <a href="../eula/">Licence</a></footer>
+</body></html>

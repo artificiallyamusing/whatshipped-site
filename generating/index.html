@@ -1,0 +1,67 @@
+<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Release notes and sprint digests</title><meta name="description" content="WhatShipped turns closed Jira work into cited release notes and scheduled digests, published to Confluence.">
+<style>
+:root{--bg:#fff;--fg:#1d2330;--muted:#5b6475;--line:#e3e6ec;--accent:#1f5eff;--code:#f4f6f9}
+@media (prefers-color-scheme:dark){:root{--bg:#12151b;--fg:#e6e8ec;--muted:#9aa3b2;--line:#2a2f39;--accent:#7fa6ff;--code:#1b1f27}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+a{color:var(--accent)}header{border-bottom:1px solid var(--line);padding:14px 20px;display:flex;justify-content:space-between;align-items:center}
+header .brand{font-weight:700;font-size:18px;color:var(--fg);text-decoration:none}header .brand span{color:var(--accent)}
+.wrap{display:grid;grid-template-columns:240px 1fr;max-width:1100px;margin:0 auto}
+nav{border-right:1px solid var(--line);padding:20px 16px;position:sticky;top:0;align-self:start;max-height:100vh;overflow:auto}
+nav a{display:block;padding:6px 8px;border-radius:6px;color:var(--fg);text-decoration:none;font-size:15px}nav a.on{background:var(--code);font-weight:600}
+main{padding:28px 36px;min-width:0}main h1{font-size:30px;line-height:1.25;margin-top:0}main h2{margin-top:32px}
+main img{max-width:100%;border:1px solid var(--line);border-radius:8px}code,pre{background:var(--code);border-radius:4px}code{padding:1px 5px}pre{padding:12px;overflow:auto}
+table{border-collapse:collapse;width:100%}td,th{border:1px solid var(--line);padding:6px 10px;text-align:left}
+footer{border-top:1px solid var(--line);padding:18px 20px;color:var(--muted);font-size:14px;text-align:center}
+@media (max-width:760px){.wrap{grid-template-columns:1fr}nav{position:static;border-right:0;border-bottom:1px solid var(--line);max-height:none;display:flex;flex-wrap:wrap;gap:4px}main{padding:20px 16px}}
+</style></head><body>
+<header><a class="brand" href="../">What<span>Shipped</span></a><a href="../support/">Support</a></header>
+<div class="wrap"><nav><a href="../">WhatShipped</a><a href="../install/">Getting started</a><a href="../generating/" class=on>Release notes and sprint digests</a><a href="../reviewing/">Review and edit</a><a href="../publishing/">Publishing to Confluence</a><a href="../digests/">Scheduled digests</a><a href="../voices/">Voices</a><a href="../budgets/">Budgets and pricing</a><a href="../security/">Security and data handling</a><a href="../vs-rovo/">WhatShipped and Rovo</a><a href="../troubleshooting/">Troubleshooting</a><a href="../support/">Support</a><a href="../privacy/">Privacy policy</a><a href="../eula/">Licence agreement</a></nav><main><h1>Release notes and sprint digests</h1>
+<p><img alt="Releases tab: a version picked, audiences ticked and the cost estimate shown" src="../img/releases-tab.png" /></p>
+<h2>From versions</h2>
+<ol>
+<li>Open <strong>WhatShipped</strong> in the project sidebar and stay on the <strong>Releases</strong> tab.</li>
+<li>Tick one or more versions, up to 20, to cover them in one note.</li>
+<li>Tick one or more audiences.</li>
+<li>Read the estimate, then choose <strong>Generate</strong>.</li>
+</ol>
+<p>When the progress card says "Draft ready", with bullet count, issue count and cost, choose <strong>Open</strong>.</p>
+<h2>From any JQL</h2>
+<p>Use <strong>Generate from JQL</strong> on the Releases tab. This is the way in for Kanban projects and projects without versions.</p>
+<ol>
+<li>Edit the JQL. It starts with issues marked Done in the last 14 days that have no fix version.</li>
+<li>Give the note a name if you like.</li>
+<li>Choose <strong>Check and estimate</strong>, then <strong>Generate from JQL</strong>.</li>
+</ol>
+<p>Jira checks the JQL first. If you can see fewer of the matching issues than the app can, the request is refused, so a note never includes issues you cannot see.</p>
+<h2>Try it on sample data</h2>
+<p>If a project has no versions, or no resolved work in them, the Releases tab offers <strong>Try it on sample data</strong>. It drafts a note from eight built-in example issues, for about $0.08 of budget. Sample notes cannot be published.</p>
+<h2>From a sprint</h2>
+<p>Choose <strong>WhatShipped: sprint digest</strong> in the sprint's actions menu, or use <strong>Digest a sprint</strong> on the <strong>Digests</strong> tab.</p>
+<p>Only resolved issues that pass the visibility rule are included. Unfinished sprint work is listed in the excluded-issue report. It is not written up as "carried over" yet.</p>
+<h2>Automatically on release</h2>
+<p>When a version is released in Jira, WhatShipped starts a customer draft for it: at most 5 per site per day, and only with 10% of the month's budget left. It is never published without a person. Turn it off in <strong>Project settings &gt; WhatShipped</strong>.</p>
+<h2>The visibility rule</h2>
+<p>The visibility rule decides which issues are read. The default is:</p>
+<ul>
+<li>Issue types Story, Bug, Task and Improvement.</li>
+<li>Resolutions Done and Fixed.</li>
+<li>No sub-tasks.</li>
+</ul>
+<p>Change any of these in <strong>Project settings &gt; WhatShipped</strong>.</p>
+<p>Two labels change how an issue is treated:</p>
+<ul>
+<li><strong>internal</strong> (you can rename it). The issue is only used by audiences that include internal changes, such as the Internal voice.</li>
+<li><strong>security</strong>. For audiences without internal changes, the issue becomes a single generic line: "A security issue was fixed." Issue types that contain "security" or "vulnerability", and issues with a Jira security level, are treated the same way.</li>
+</ul>
+<h2>The excluded-issue report</h2>
+<p>Every note lists the issues it skipped and why, for example "sub-task", "resolution Won't Do" or "unresolved (In Progress)". It is at the bottom of the review screen.</p>
+<h2>When nothing matches</h2>
+<p>If issues were found but none passed the rule, WhatShipped says why, for example "4 excluded: type Feature not in rule; 2: not resolved." When a rule change would help, choose <strong>Edit visibility rule</strong>, fix it in place and generate again.</p>
+<h2>Size and cost limits</h2>
+<p>Before you generate, WhatShipped shows the issue count and an estimated cost. It refuses a request that would read more than 300 issues or cost more than about $1.00. The refusal says how to narrow it: fewer audiences, fewer versions or a narrower JQL filter.</p>
+<h2>Optional: linked pull request titles</h2>
+<p><strong>Read linked PR titles</strong> in Project settings adds up to five remote link titles per issue. It is off by default, as it costs one extra Jira call per issue.</p>
+<p>Assignees and reporters are never sent to the model. See <a href="../security/">Security</a>.</p></main></div>
+<footer>WhatShipped · <a href="mailto:hello@whatshipped.co.uk">hello@whatshipped.co.uk</a> · <a href="../privacy/">Privacy</a> · <a href="../eula/">Licence</a></footer>
+</body></html>

@@ -1,0 +1,50 @@
+<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WhatShipped: release notes and digests for Jira</title><meta name="description" content="WhatShipped turns closed Jira work into cited release notes and scheduled digests, published to Confluence.">
+<style>
+:root{--bg:#fff;--fg:#1d2330;--muted:#5b6475;--line:#e3e6ec;--accent:#1f5eff;--code:#f4f6f9}
+@media (prefers-color-scheme:dark){:root{--bg:#12151b;--fg:#e6e8ec;--muted:#9aa3b2;--line:#2a2f39;--accent:#7fa6ff;--code:#1b1f27}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+a{color:var(--accent)}header{border-bottom:1px solid var(--line);padding:14px 20px;display:flex;justify-content:space-between;align-items:center}
+header .brand{font-weight:700;font-size:18px;color:var(--fg);text-decoration:none}header .brand span{color:var(--accent)}
+.wrap{display:grid;grid-template-columns:240px 1fr;max-width:1100px;margin:0 auto}
+nav{border-right:1px solid var(--line);padding:20px 16px;position:sticky;top:0;align-self:start;max-height:100vh;overflow:auto}
+nav a{display:block;padding:6px 8px;border-radius:6px;color:var(--fg);text-decoration:none;font-size:15px}nav a.on{background:var(--code);font-weight:600}
+main{padding:28px 36px;min-width:0}main h1{font-size:30px;line-height:1.25;margin-top:0}main h2{margin-top:32px}
+main img{max-width:100%;border:1px solid var(--line);border-radius:8px}code,pre{background:var(--code);border-radius:4px}code{padding:1px 5px}pre{padding:12px;overflow:auto}
+table{border-collapse:collapse;width:100%}td,th{border:1px solid var(--line);padding:6px 10px;text-align:left}
+footer{border-top:1px solid var(--line);padding:18px 20px;color:var(--muted);font-size:14px;text-align:center}
+@media (max-width:760px){.wrap{grid-template-columns:1fr}nav{position:static;border-right:0;border-bottom:1px solid var(--line);max-height:none;display:flex;flex-wrap:wrap;gap:4px}main{padding:20px 16px}}
+</style></head><body>
+<header><a class="brand" href="">What<span>Shipped</span></a><a href="support/">Support</a></header>
+<div class="wrap"><nav><a href="" class=on>WhatShipped</a><a href="install/">Getting started</a><a href="generating/">Release notes and sprint digests</a><a href="reviewing/">Review and edit</a><a href="publishing/">Publishing to Confluence</a><a href="digests/">Scheduled digests</a><a href="voices/">Voices</a><a href="budgets/">Budgets and pricing</a><a href="security/">Security and data handling</a><a href="vs-rovo/">WhatShipped and Rovo</a><a href="troubleshooting/">Troubleshooting</a><a href="support/">Support</a><a href="privacy/">Privacy policy</a><a href="eula/">Licence agreement</a></nav><main><h1>WhatShipped</h1>
+<p>Release notes and digests for Jira, published to Confluence. Every bullet cites its Jira issue.</p>
+<p>WhatShipped is a Forge app for Jira Cloud. You pick one or more versions, a sprint or a JQL scope, once or on a schedule. WhatShipped reads the resolved issues and drafts notes in the voice you set. You review the draft, edit it, and publish it to Confluence yourself.</p>
+<p>It runs on Atlassian. Drafting uses Atlassian's Forge LLMs (Claude models). Prompts and issue text do not leave Atlassian, and no personal names are sent to the model.</p>
+<h2>What it does</h2>
+<ul>
+<li><strong>Drafts from real work.</strong> Release notes from one or more Jira versions, digests from a sprint, and one-off or scheduled digests from any JQL. No versions yet? Try it on sample data first.</li>
+<li><strong>Cites every bullet.</strong> Each bullet shows the issue keys behind it. A checker removes bullets that are uncited, cite the wrong issue, use a banned word or name a person.</li>
+<li><strong>Shows what it left out.</strong> An excluded-issue report lists every issue that was skipped and why.</li>
+<li><strong>Writes in your voice.</strong> Customer, internal and exec voices come ready to use. You can edit them or add your own.</li>
+<li><strong>Waits for a person.</strong> Nothing is published until someone clicks Publish. Pages are created as that person, so normal Confluence permissions apply.</li>
+<li><strong>Keeps a record.</strong> One Confluence page per release or digest, under a parent page you choose, plus a changelog index page that lists them all. The History tab lists every note with its status, cost and link.</li>
+<li><strong>Copy-ready text.</strong> Slack, Markdown and email HTML versions of any draft, shown ready to select and copy.</li>
+<li><strong>Shows cost in dollars.</strong> A monthly drafting budget per site, shown on the project page and the admin page.</li>
+</ul>
+<p><img alt="Review screen: bullets with issue-key chips, the excluded-issue report and the cost of the draft" src="img/review-screen.png" /></p>
+<p><img alt="A published release note in Confluence, filed under a Release notes parent page" src="img/confluence-page.png" /></p>
+<p><img alt="Digests tab: a weekly schedule with its JQL scope, audience and last run status" src="img/digests-tab.png" /></p>
+<h2>Pricing</h2>
+<p>Free for sites with up to 10 users. Sites with 11 or more users pay $1.00 per user per month, billed by Atlassian. See <a href="budgets/">Budgets and pricing</a>.</p>
+<h2>Start here</h2>
+<ol>
+<li><a href="install/">Getting started</a></li>
+<li><a href="generating/">Release notes and sprint digests</a></li>
+<li><a href="reviewing/">Review and edit</a></li>
+<li><a href="publishing/">Publishing to Confluence</a></li>
+<li><a href="digests/">Scheduled digests</a></li>
+<li><a href="voices/">Voices</a></li>
+</ol>
+<p>Questions: <a href="support/">Support</a> or hello@whatshipped.co.uk.</p></main></div>
+<footer>WhatShipped · <a href="mailto:hello@whatshipped.co.uk">hello@whatshipped.co.uk</a> · <a href="privacy/">Privacy</a> · <a href="eula/">Licence</a></footer>
+</body></html>

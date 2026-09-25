@@ -1,0 +1,65 @@
+<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Publishing to Confluence</title><meta name="description" content="WhatShipped turns closed Jira work into cited release notes and scheduled digests, published to Confluence.">
+<style>
+:root{--bg:#fff;--fg:#1d2330;--muted:#5b6475;--line:#e3e6ec;--accent:#1f5eff;--code:#f4f6f9}
+@media (prefers-color-scheme:dark){:root{--bg:#12151b;--fg:#e6e8ec;--muted:#9aa3b2;--line:#2a2f39;--accent:#7fa6ff;--code:#1b1f27}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+a{color:var(--accent)}header{border-bottom:1px solid var(--line);padding:14px 20px;display:flex;justify-content:space-between;align-items:center}
+header .brand{font-weight:700;font-size:18px;color:var(--fg);text-decoration:none}header .brand span{color:var(--accent)}
+.wrap{display:grid;grid-template-columns:240px 1fr;max-width:1100px;margin:0 auto}
+nav{border-right:1px solid var(--line);padding:20px 16px;position:sticky;top:0;align-self:start;max-height:100vh;overflow:auto}
+nav a{display:block;padding:6px 8px;border-radius:6px;color:var(--fg);text-decoration:none;font-size:15px}nav a.on{background:var(--code);font-weight:600}
+main{padding:28px 36px;min-width:0}main h1{font-size:30px;line-height:1.25;margin-top:0}main h2{margin-top:32px}
+main img{max-width:100%;border:1px solid var(--line);border-radius:8px}code,pre{background:var(--code);border-radius:4px}code{padding:1px 5px}pre{padding:12px;overflow:auto}
+table{border-collapse:collapse;width:100%}td,th{border:1px solid var(--line);padding:6px 10px;text-align:left}
+footer{border-top:1px solid var(--line);padding:18px 20px;color:var(--muted);font-size:14px;text-align:center}
+@media (max-width:760px){.wrap{grid-template-columns:1fr}nav{position:static;border-right:0;border-bottom:1px solid var(--line);max-height:none;display:flex;flex-wrap:wrap;gap:4px}main{padding:20px 16px}}
+</style></head><body>
+<header><a class="brand" href="../">What<span>Shipped</span></a><a href="../support/">Support</a></header>
+<div class="wrap"><nav><a href="../">WhatShipped</a><a href="../install/">Getting started</a><a href="../generating/">Release notes and sprint digests</a><a href="../reviewing/">Review and edit</a><a href="../publishing/" class=on>Publishing to Confluence</a><a href="../digests/">Scheduled digests</a><a href="../voices/">Voices</a><a href="../budgets/">Budgets and pricing</a><a href="../security/">Security and data handling</a><a href="../vs-rovo/">WhatShipped and Rovo</a><a href="../troubleshooting/">Troubleshooting</a><a href="../support/">Support</a><a href="../privacy/">Privacy policy</a><a href="../eula/">Licence agreement</a></nav><main><h1>Publishing to Confluence</h1>
+<h2>Drafts until you publish</h2>
+<p>Everything starts as a draft: manual notes, auto-drafts and scheduled digests. Nothing reaches readers until a person clicks <strong>Publish to Confluence</strong>. Notes made from sample data cannot be published.</p>
+<h2>Published as you</h2>
+<p>Pages are created or updated with your Confluence account, not the app's, so you are the author and normal permissions apply.</p>
+<h2>Choosing where notes go</h2>
+<p>Each project has one Confluence target: a space and a parent page.</p>
+<p>The first time anyone publishes from a project, WhatShipped asks for a space. The parent defaults to the space homepage; use <strong>Choose a different parent</strong> to pick a top-level page. Then choose <strong>File notes here</strong>.</p>
+<p>Change the target later in <strong>Project settings &gt; WhatShipped &gt; Change target</strong>.</p>
+<p>A tidy setup is a "Release notes" parent page, with each release or digest as a child page.</p>
+<h2>The changelog index page</h2>
+<p>After each publish, WhatShipped also keeps an index page under the same parent, called "<KEY> changelog" (for example "ACME changelog"). It lists every published note, newest first, with a link.</p>
+<ul>
+<li>It only grows. Republishing refreshes a line; deleting a note in WhatShipped leaves its line.</li>
+<li>If a page with that title already exists and WhatShipped did not make it, WhatShipped leaves it alone and uses "<KEY> changelog (WhatShipped)" instead.</li>
+<li>If the index page is deleted, it is created again at the next publish.</li>
+<li>It stays under the parent where it was first created, even if you change the target later.</li>
+<li>If the index cannot be updated, the note is still published, with a warning.</li>
+</ul>
+<h2>Page titles and updates</h2>
+<ul>
+<li>Release notes and sprint digests are titled with the project name, the versions or sprint and the audience.</li>
+<li>Scheduled digests are titled with the schedule name and the date.</li>
+</ul>
+<p>A page with the same title under the parent is updated as a new page version, not copied.</p>
+<h2>What changes in Jira</h2>
+<p>When you publish release notes for one or more <strong>versions</strong>, WhatShipped stores a link to the page as a project property for each version. You do not see this in Jira.</p>
+<p>It can also add "Release notes: <link>" to each version's description. This is <strong>off by default</strong>. Turn it on in <strong>Project settings &gt; WhatShipped</strong>. Even then, WhatShipped only fills a description that is empty. It never replaces text you wrote.</p>
+<p>Both are best effort. If Jira refuses, the Confluence page is still published.</p>
+<h2>The pre-flight check</h2>
+<p>Before publishing, WhatShipped checks the parent page. You may see:</p>
+<ul>
+<li><strong>"You need edit access to space [name]."</strong> You can view the space but not add pages. Ask a space admin for permission, or pick another target.</li>
+<li><strong>"The parent page no longer exists."</strong> The parent was deleted or moved out of reach. Pick a new target in Project settings.</li>
+</ul>
+<p>Either way the note is marked <strong>blocked</strong> and schedules using that target pause. After fixing the target, turn them back on in the <strong>Digests</strong> tab.</p>
+<h2>After publishing</h2>
+<ul>
+<li>The note's status becomes <strong>published</strong> and History shows the page link.</li>
+<li>Your edits are saved as edit memory for that voice. See <a href="../reviewing/">Review and edit</a>.</li>
+<li>The changelog index page gets a new line.</li>
+<li>After the third publish on your site, a card asks once whether you would like to leave a Marketplace review. It never appears again.</li>
+</ul>
+<h2>Other channels</h2>
+<p>WhatShipped publishes to Confluence only and sends no messages itself. For Slack, Teams or email, use the copy-ready formats on the review screen, or Confluence's own watch emails.</p></main></div>
+<footer>WhatShipped · <a href="mailto:hello@whatshipped.co.uk">hello@whatshipped.co.uk</a> · <a href="../privacy/">Privacy</a> · <a href="../eula/">Licence</a></footer>
+</body></html>

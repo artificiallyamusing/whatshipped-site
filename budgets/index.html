@@ -1,0 +1,98 @@
+<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Budgets and pricing</title><meta name="description" content="WhatShipped turns closed Jira work into cited release notes and scheduled digests, published to Confluence.">
+<style>
+:root{--bg:#fff;--fg:#1d2330;--muted:#5b6475;--line:#e3e6ec;--accent:#1f5eff;--code:#f4f6f9}
+@media (prefers-color-scheme:dark){:root{--bg:#12151b;--fg:#e6e8ec;--muted:#9aa3b2;--line:#2a2f39;--accent:#7fa6ff;--code:#1b1f27}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+a{color:var(--accent)}header{border-bottom:1px solid var(--line);padding:14px 20px;display:flex;justify-content:space-between;align-items:center}
+header .brand{font-weight:700;font-size:18px;color:var(--fg);text-decoration:none}header .brand span{color:var(--accent)}
+.wrap{display:grid;grid-template-columns:240px 1fr;max-width:1100px;margin:0 auto}
+nav{border-right:1px solid var(--line);padding:20px 16px;position:sticky;top:0;align-self:start;max-height:100vh;overflow:auto}
+nav a{display:block;padding:6px 8px;border-radius:6px;color:var(--fg);text-decoration:none;font-size:15px}nav a.on{background:var(--code);font-weight:600}
+main{padding:28px 36px;min-width:0}main h1{font-size:30px;line-height:1.25;margin-top:0}main h2{margin-top:32px}
+main img{max-width:100%;border:1px solid var(--line);border-radius:8px}code,pre{background:var(--code);border-radius:4px}code{padding:1px 5px}pre{padding:12px;overflow:auto}
+table{border-collapse:collapse;width:100%}td,th{border:1px solid var(--line);padding:6px 10px;text-align:left}
+footer{border-top:1px solid var(--line);padding:18px 20px;color:var(--muted);font-size:14px;text-align:center}
+@media (max-width:760px){.wrap{grid-template-columns:1fr}nav{position:static;border-right:0;border-bottom:1px solid var(--line);max-height:none;display:flex;flex-wrap:wrap;gap:4px}main{padding:20px 16px}}
+</style></head><body>
+<header><a class="brand" href="../">What<span>Shipped</span></a><a href="../support/">Support</a></header>
+<div class="wrap"><nav><a href="../">WhatShipped</a><a href="../install/">Getting started</a><a href="../generating/">Release notes and sprint digests</a><a href="../reviewing/">Review and edit</a><a href="../publishing/">Publishing to Confluence</a><a href="../digests/">Scheduled digests</a><a href="../voices/">Voices</a><a href="../budgets/" class=on>Budgets and pricing</a><a href="../security/">Security and data handling</a><a href="../vs-rovo/">WhatShipped and Rovo</a><a href="../troubleshooting/">Troubleshooting</a><a href="../support/">Support</a><a href="../privacy/">Privacy policy</a><a href="../eula/">Licence agreement</a></nav><main><h1>Budgets and pricing</h1>
+<h2>Price</h2>
+<table>
+<thead>
+<tr>
+<th>Users on the site</th>
+<th>Price</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 to 10</td>
+<td>Free</td>
+</tr>
+<tr>
+<td>11 or more</td>
+<td>$1.00 per user per month</td>
+</tr>
+</tbody>
+</table>
+<p>Atlassian bills you on your existing Atlassian invoice. Trials, renewals, refunds and cancellations are handled by Atlassian under its Marketplace terms.</p>
+<h2>Why there is a drafting budget</h2>
+<p>Every draft costs money to run. Atlassian charges us for Forge LLMs by use. So each site has a monthly drafting budget, shown in dollars. You never need to think in tokens.</p>
+<table>
+<thead>
+<tr>
+<th>Plan</th>
+<th>Monthly drafting budget</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Free (up to 10 users)</td>
+<td>$1.00, about 7 notes of typical size</td>
+</tr>
+<tr>
+<td>Trial</td>
+<td>$6.00</td>
+</tr>
+<tr>
+<td>Paid</td>
+<td>$0.20 per user, at least $2.50 and at most $60.00</td>
+</tr>
+</tbody>
+</table>
+<p>A typical note of about 40 issues for one audience costs around $0.14. More issues or more audiences cost more.</p>
+<p>The paid budget uses a count of user accounts on your site. It can be higher than your Jira user count, which only raises the budget.</p>
+<h2>The meter</h2>
+<p>The project page shows a meter such as "$0.62 of $1.00 used this month". Before each draft you also see an estimate for that draft.</p>
+<p>At 80% used, a warning appears.</p>
+<h2>What happens when it runs out</h2>
+<ol>
+<li><strong>Soft stop.</strong> If a draft would take you over the budget, WhatShipped runs that one draft on the economy model instead. This happens once per month.</li>
+<li><strong>Hard stop.</strong> After that, new drafts, regenerations and voice previews are refused with "This site has used its generation budget for the month."</li>
+</ol>
+<p>While drafting is stopped:</p>
+<ul>
+<li>Editing, copying, publishing and History all keep working.</li>
+<li>Scheduled digests that fall due are recorded in History as failed, with the budget message. The schedules stay on.</li>
+<li>Auto-drafts on release need at least 10% of the budget left, so they stop a little earlier.</li>
+</ul>
+<h2>When it resets</h2>
+<p>On the 1st of each month (UTC). The soft stop is available again too.</p>
+<h2>Admin page</h2>
+<p>Jira admins open <strong>Jira administration &gt; Apps &gt; WhatShipped</strong>. It shows:</p>
+<ul>
+<li>the site meter, the plan and whether the soft stop has been used;</li>
+<li>auto-drafts today, out of 5;</li>
+<li>usage by project this month, in dollars, model calls and tokens;</li>
+<li>errors by type over the last 7 days;</li>
+<li>when the background jobs last ran;</li>
+<li>the retention setting. See <a href="../security/">Security</a>.</li>
+</ul>
+<p><img alt="Admin page: site budget meter, per-project usage and the model switch" src="../img/admin-budget.png" /></p>
+<h2>Economy model</h2>
+<p>On the admin page you can switch drafting from <strong>Default</strong> (Claude Sonnet writes the final draft) to <strong>Economy</strong> (Claude Haiku writes it). Economy costs less per note, so the budget goes further. Reading the issues always uses Haiku.</p>
+<h2>Per-request limit</h2>
+<p>Any single request over 300 issues or about $1.00 is refused, whatever budget is left. See <a href="../generating/">Release notes and sprint digests</a>.</p></main></div>
+<footer>WhatShipped · <a href="mailto:hello@whatshipped.co.uk">hello@whatshipped.co.uk</a> · <a href="../privacy/">Privacy</a> · <a href="../eula/">Licence</a></footer>
+</body></html>

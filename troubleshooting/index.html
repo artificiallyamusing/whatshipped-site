@@ -1,0 +1,100 @@
+<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Troubleshooting</title><meta name="description" content="WhatShipped turns closed Jira work into cited release notes and scheduled digests, published to Confluence.">
+<style>
+:root{--bg:#fff;--fg:#1d2330;--muted:#5b6475;--line:#e3e6ec;--accent:#1f5eff;--code:#f4f6f9}
+@media (prefers-color-scheme:dark){:root{--bg:#12151b;--fg:#e6e8ec;--muted:#9aa3b2;--line:#2a2f39;--accent:#7fa6ff;--code:#1b1f27}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+a{color:var(--accent)}header{border-bottom:1px solid var(--line);padding:14px 20px;display:flex;justify-content:space-between;align-items:center}
+header .brand{font-weight:700;font-size:18px;color:var(--fg);text-decoration:none}header .brand span{color:var(--accent)}
+.wrap{display:grid;grid-template-columns:240px 1fr;max-width:1100px;margin:0 auto}
+nav{border-right:1px solid var(--line);padding:20px 16px;position:sticky;top:0;align-self:start;max-height:100vh;overflow:auto}
+nav a{display:block;padding:6px 8px;border-radius:6px;color:var(--fg);text-decoration:none;font-size:15px}nav a.on{background:var(--code);font-weight:600}
+main{padding:28px 36px;min-width:0}main h1{font-size:30px;line-height:1.25;margin-top:0}main h2{margin-top:32px}
+main img{max-width:100%;border:1px solid var(--line);border-radius:8px}code,pre{background:var(--code);border-radius:4px}code{padding:1px 5px}pre{padding:12px;overflow:auto}
+table{border-collapse:collapse;width:100%}td,th{border:1px solid var(--line);padding:6px 10px;text-align:left}
+footer{border-top:1px solid var(--line);padding:18px 20px;color:var(--muted);font-size:14px;text-align:center}
+@media (max-width:760px){.wrap{grid-template-columns:1fr}nav{position:static;border-right:0;border-bottom:1px solid var(--line);max-height:none;display:flex;flex-wrap:wrap;gap:4px}main{padding:20px 16px}}
+</style></head><body>
+<header><a class="brand" href="../">What<span>Shipped</span></a><a href="../support/">Support</a></header>
+<div class="wrap"><nav><a href="../">WhatShipped</a><a href="../install/">Getting started</a><a href="../generating/">Release notes and sprint digests</a><a href="../reviewing/">Review and edit</a><a href="../publishing/">Publishing to Confluence</a><a href="../digests/">Scheduled digests</a><a href="../voices/">Voices</a><a href="../budgets/">Budgets and pricing</a><a href="../security/">Security and data handling</a><a href="../vs-rovo/">WhatShipped and Rovo</a><a href="../troubleshooting/" class=on>Troubleshooting</a><a href="../support/">Support</a><a href="../privacy/">Privacy policy</a><a href="../eula/">Licence agreement</a></nav><main><h1>Troubleshooting</h1>
+<p>Find the message you saw, shown exactly as WhatShipped displays it.</p>
+<table>
+<thead>
+<tr>
+<th>Message</th>
+<th>What to do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The model is busy. WhatShipped is retrying automatically.</td>
+<td>Wait a minute.</td>
+</tr>
+<tr>
+<td>Jira asked us to slow down. WhatShipped is retrying automatically.</td>
+<td>Wait a minute.</td>
+</tr>
+<tr>
+<td>The model returned an unexpected error. WhatShipped retried three times without success; try again later.</td>
+<td>Try later. If it repeats, contact support.</td>
+</tr>
+<tr>
+<td>The platform's content filter declined this text. Try excluding the issue it flagged (often security detail) and generate again.</td>
+<td>Label that issue <strong>security</strong> or <strong>internal</strong>, or narrow the scope.</td>
+</tr>
+<tr>
+<td>Generation is paused: the app vendor's model billing needs attention. Nothing you can fix on your side; the vendor has been alerted.</td>
+<td>Nothing to do on your side.</td>
+</tr>
+<tr>
+<td>WhatShipped is missing a Jira permission scope. A Jira admin needs to re-approve the app.</td>
+<td>A Jira admin approves the update in <strong>Apps &gt; Manage your apps</strong>.</td>
+</tr>
+<tr>
+<td>You (or the app) cannot see this project's issues. Check project permissions.</td>
+<td>Check you, and the app, can browse the project.</td>
+</tr>
+<tr>
+<td>The Confluence parent page no longer exists. Pick a new target in Settings.</td>
+<td><strong>Project settings &gt; WhatShipped &gt; Change target</strong>, then turn paused schedules back on.</td>
+</tr>
+<tr>
+<td>You need edit access to the target Confluence space.</td>
+<td>Ask a space admin for "Add page" permission, or choose another target.</td>
+</tr>
+<tr>
+<td>WhatShipped's storage is full for this site. Delete old notes from History.</td>
+<td>Delete old notes, or lower retention on the admin page.</td>
+</tr>
+<tr>
+<td>This site has used its generation budget for the month.</td>
+<td>Drafting resumes on the 1st (UTC). See <a href="../budgets/">Budgets</a>.</td>
+</tr>
+<tr>
+<td>This site's WhatShipped license is not active.</td>
+<td>A Jira admin checks the subscription in <strong>Apps &gt; Manage your apps</strong>.</td>
+</tr>
+<tr>
+<td>Generation took too long and was stopped. Retry with a narrower scope.</td>
+<td>Pick fewer audiences or a smaller scope and generate again.</td>
+</tr>
+<tr>
+<td>No issues matched the visibility rule (Done or Fixed Stories, Bugs, Tasks and Improvements; not sub-tasks). Check the filter in Settings.</td>
+<td>Read the reasons shown, then choose <strong>Edit visibility rule</strong>.</td>
+</tr>
+</tbody>
+</table>
+<h2>Other situations</h2>
+<p><strong>"Taking longer than expected" with a Retry button.</strong> A draft stalled. Choose <strong>Retry</strong>.</p>
+<p><strong>"Background jobs may be delayed".</strong> The hourly check has not run for 26 hours, so digests may be late. We are alerted.</p>
+<p><strong>A digest shows "missed".</strong> It started more than 3 hours after its time. It still ran.</p>
+<p><strong>A schedule shows "paused".</strong> Its Confluence target broke. Fix the target, then turn it back on.</p>
+<p><strong>Refused as too large.</strong> Over 300 issues or about $1.00. Pick fewer audiences or versions, or narrow the JQL.</p>
+<p><strong>My JQL was refused.</strong> You can see fewer of the matching issues than the app. Narrow the JQL to projects you can browse.</p>
+<p><strong>A bullet looks wrong.</strong> Check its issue chips, then edit or delete the line. If the cited issue does not support it, send us the note title and bullet text.</p>
+<p><strong>Copy does not reach my clipboard.</strong> This is expected. Select the text in the box and copy it.</p>
+<p><strong>My version description did not get a link.</strong> The link is off by default. Turn it on in Project settings. It is only added to an empty description; WhatShipped never replaces text you wrote. See <a href="../publishing/">Publishing</a>.</p>
+<p><strong>There is no Publish button.</strong> The note was made from sample data. Generate from your own versions or JQL to publish.</p>
+<p>Still stuck? See <a href="../support/">Support</a>.</p></main></div>
+<footer>WhatShipped · <a href="mailto:hello@whatshipped.co.uk">hello@whatshipped.co.uk</a> · <a href="../privacy/">Privacy</a> · <a href="../eula/">Licence</a></footer>
+</body></html>
